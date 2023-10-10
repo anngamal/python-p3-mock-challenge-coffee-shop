@@ -2,6 +2,22 @@ class Customer:
     def __init__(self, name):
         self.name = name
         self.orders = []
+
+
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new_name):
+        if isinstance(new_name, str) and  1 <= len(new_name) <= 15:
+            self._name = new_name
+        else:
+            raise ValueError(f"Must be btwn 1 and 15 chars")
     
     def get_coffees(self):
-        pass
+        return [order.coffee for order in self.orders]
+
+
+  
